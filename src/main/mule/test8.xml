@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config1" doc:name="HTTP Listener config" doc:id="d348d0b8-cae5-4109-91a2-decd052250d0" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<http:listener-config name="HTTP_Listener_config2" doc:name="HTTP Listener config" doc:id="babf9de1-6a2a-4543-a8ae-fc4476fd3c95" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="test8Flow" doc:id="04a41a6a-ecd1-4e5b-a5ed-83bbe8dc16ab" >
+		<http:listener doc:name="Get" doc:id="d1ae6890-828e-4da0-bba4-a74fa9d5f291" config-ref="HTTP_Listener_config2" path="/xyz" allowedMethods="GET"/>
+		<set-payload value="Chandrakanth" doc:name="Set Payload" doc:id="b605c5e5-1e80-4c5b-ac0b-db5b848d6f09" />
+	</flow>
+	<flow name="test8Flow1" doc:id="aa65daeb-95b3-490f-a97b-e8ee5c6fa052" >
+		<http:listener doc:name="Post" doc:id="72e6694e-86f8-4642-9b69-1b5aab590cd6" config-ref="HTTP_Listener_config1" path="/zyx" allowedMethods="POST"/>
+		<set-payload value="Phanindra" doc:name="Set Payload" doc:id="10d1366b-f2e1-4642-9b9b-ba342c8410a2" />
+	</flow>
+</mule>
